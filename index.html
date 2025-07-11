@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Estates - Your Dream Property Awaits</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for general text -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles for a dark, modern theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A; /* Slate-900 background */
+            color: #E2E8F0; /* Light text color */
+            scroll-behavior: smooth;
+        }
+
+        /* Header Specific Styles */
+        header {
+            background-color: #0F172A; /* Match body background */
+            border-bottom: 1px solid #1E293B; /* Subtle border */
+        }
+
+        /* Hero Section Specific Styles */
+        .hero-section {
+            background-image: url('https://placehold.co/1920x1080/1E293B/E2E8F0?text=Modern+Property+Hero'); /* Placeholder for hero background */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+        .search-bar-container {
+            background-color: rgba(30, 41, 59, 0.9); /* Darker slate with transparency */
+            border-radius: 1.5rem; /* More rounded */
+            padding: 1.5rem 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        .search-input {
+            background-color: #2D3748; /* Darker input background */
+            border: 1px solid #4A5568;
+            color: #E2E8F0;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.75rem;
+        }
+        .search-input::placeholder {
+            color: #A0AEC0;
+        }
+        .search-button {
+            background-color: #3B82F6; /* Blue-500 */
+            color: #FFFFFF;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.75rem;
+            transition: background-color 0.3s ease;
+        }
+        .search-button:hover {
+            background-color: #2563EB; /* Blue-600 */
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 6rem 1rem;
+        }
+        .section-heading {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #F8FAFC; /* White */
+            margin-bottom: 1rem;
+        }
+        .section-subheading {
+            font-size: 1.125rem;
+            color: #94A3B8; /* Slate-400 */
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Card Styles */
+        .property-card, .agent-card, .category-card, .step-card, .testimonial-card, .blog-card, .career-card, .virtual-tour-card {
+            background-color: #1E293B; /* Slate-800 */
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .property-card:hover, .agent-card:hover, .category-card:hover, .step-card:hover, .testimonial-card:hover, .blog-card:hover, .career-card:hover, .virtual-tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        .card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 1rem 1rem 0 0;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #F8FAFC;
+            margin-bottom: 0.5rem;
+        }
+        .card-price {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #3B82F6; /* Blue-500 */
+            margin-bottom: 0.75rem;
+        }
+        .card-location {
+            color: #A0AEC0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .card-location svg {
+            margin-right: 0.5rem;
+        }
+        .card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+            color: #A0AEC0;
+            font-size: 0.875rem;
+        }
+        .card-feature-item {
+            display: flex;
+            align-items: center;
+        }
+        .card-feature-item svg {
+            margin-right: 0.3rem;
+            color: #3B82F6;
+        }
+
+        /* Carousel Navigation */
+        .carousel-nav-button {
+            background-color: #334155; /* Slate-700 */
+            color: #E2E8F0;
+            padding: 0.75rem 1rem;
+            border-radius: 9999px; /* Full rounded */
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .carousel-nav-button:hover {
+            background-color: #475569; /* Slate-600 */
+        }
+
+        /* How It Works Section */
+        .step-card {
+            background-color: #1E293B;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .step-icon {
+            background-color: #3B82F6;
+            color: #FFFFFF;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1.5rem;
+        }
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #F8FAFC;
+            margin-bottom: 0.75rem;
+        }
+        .step-description {
+            color: #A0AEC0;
+            font-size: 1rem;
+        }
+
+        /* Agent Card Specific */
+        .agent-card .agent-image {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid #3B82F6; /* Blue border */
+        }
+        .agent-card .card-title {
+            margin-bottom: 0.25rem;
+        }
+        .agent-card .agent-title {
+            color: #A0AEC0;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .agent-card .social-links a {
+            color: #A0AEC0;
+            font-size: 1.25rem;
+            transition: color 0.3s ease;
+        }
+        .agent-card .social-links a:hover {
+            color: #3B82F6;
+        }
+
+        /* Testimonial Card */
+        .testimonial-card {
+            background-color: #1E293B;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .testimonial-quote {
+            font-style: italic;
+            color: #E2E8F0;
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        .testimonial-author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 3px solid #3B82F6;
+        }
+        .testimonial-author-name {
+            font-weight: 700;
+            color: #F8FAFC;
+            font-size: 1.125rem;
+        }
+        .testimonial-author-title {
+            color: #A0AEC0;
+            font-size: 0.9rem;
+        }
+
+        /* Mortgage Calculator */
+        .calculator-container {
+            background-color: #1E293B;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .calculator-input {
+            background-color: #2D3748;
+            border: 1px solid #4A5568;
+            color: #E2E8F0;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+        }
+        .calculator-button {
+            background-color: #3B82F6;
+            color: #FFFFFF;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .calculator-button:hover {
+            background-color: #2563EB;
+        }
+        .result-box {
+            background-color: #2D3748;
+            border: 1px solid #4A5568;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            color: #E2E8F0;
+            font-size: 1.125rem;
+        }
+
+        /* Blog Card */
+        .blog-card .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 1rem 1rem 0 0;
+        }
+        .blog-card .blog-meta {
+            font-size: 0.875rem;
+            color: #94A3B8;
+            margin-bottom: 0.75rem;
+        }
+        .blog-card .blog-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #F8FAFC;
+            margin-bottom: 0.5rem;
+        }
+        .blog-card .blog-excerpt {
+            color: #A0AEC0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .blog-card .read-more {
+            color: #3B82F6;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .blog-card .read-more:hover {
+            color: #2563EB;
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            background-color: #1E293B;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: #F8FAFC;
+        }
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #A0AEC0;
+            font-size: 0.95rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Adjust as needed */
+            transition: max-height 0.5s ease-in;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background-color: #1E293B;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .contact-input, .contact-textarea {
+            background-color: #2D3748;
+            border: 1px solid #4A5568;
+            color: #E2E8F0;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+        }
+        .contact-input::placeholder, .contact-textarea::placeholder {
+            color: #A0AEC0;
+        }
+        .contact-button {
+            background-color: #3B82F6;
+            color: #FFFFFF;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border-radius: 0.75rem;
+            transition: background-color 0.3s ease;
+        }
+        .contact-button:hover {
+            background-color: #2563EB;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: #3B82F6; /* Blue background */
+            padding: 6rem 1rem;
+            text-align: center;
+            border-radius: 1rem;
+            margin: 0 auto;
+            max-width: 1200px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .cta-button {
+            background-color: #F8FAFC; /* White */
+            color: #3B82F6; /* Blue-500 */
+            font-weight: 700;
+            padding: 1rem 3rem;
+            border-radius: 0.75rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #E2E8F0; /* Lighter white */
+            color: #2563EB; /* Darker blue */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1E293B; /* Slate-800 */
+            padding: 4rem 1rem;
+            border-top: 1px solid #334155; /* Slate-700 */
+        }
+        .footer-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #F8FAFC;
+            margin-bottom: 1.5rem;
+        }
+        .footer-link {
+            color: #A0AEC0;
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover {
+            color: #3B82F6;
+        }
+        .social-icon {
+            color: #A0AEC0;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .social-icon:hover {
+            color: #3B82F6;
+        }
+
+        /* Utility for hiding/showing elements (for JS toggles) */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-slate-900 py-4 px-8 shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center text-white text-2xl font-bold">
+                <img src="https://placehold.co/40x40/3B82F6/FFFFFF?text=EE" alt="Elite Estates Logo" class="h-10 w-10 rounded-full mr-2">
+                Elite Estates
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-slate-300 hover:text-blue-400 transition duration-300 font-medium">Home</a>
+                <a href="#listings" class="text-slate-300 hover:text-blue-400 transition duration-300 font-medium">Listings</a>
+                <a href="#agents" class="text-slate-300 hover:text-blue-400 transition duration-300 font-medium">Agents</a>
+                <a href="#about" class="text-slate-300 hover:text-blue-400 transition duration-300 font-medium">About Us</a>
+                <a href="#contact" class="text-slate-300 hover:text-blue-400 transition duration-300 font-medium">Contact</a>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-5 rounded-lg shadow-md transition duration-300">Login / Register</button>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <nav id="mobile-menu" class="md:hidden bg-slate-800 px-8 pt-4 pb-2 space-y-3 hidden">
+            <a href="#home" class="block text-slate-200 hover:text-blue-400 transition duration-300 py-2">Home</a>
+            <a href="#listings" class="block text-slate-200 hover:text-blue-400 transition duration-300 py-2">Listings</a>
+            <a href="#agents" class="block text-slate-200 hover:text-blue-400 transition duration-300 py-2">Agents</a>
+            <a href="#about" class="block text-slate-200 hover:text-blue-400 transition duration-300 py-2">About Us</a>
+            <a href="#contact" class="block text-slate-200 hover:text-blue-400 transition duration-300 py-2">Contact</a>
+            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-5 rounded-lg shadow-md transition duration-300">Login / Register</button>
+        </nav>
+    </header>
+
+    <main class="pt-20"> <!-- Padding top to account for fixed header -->
+
+        <!-- 1. Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="text-6xl md:text-7xl font-extrabold leading-tight mb-6 text-white drop-shadow-lg">
+                    Find Your Dream <span class="text-blue-400">Property</span>
+                </h1>
+                <p class="text-xl text-slate-200 mb-10 max-w-2xl mx-auto">
+                    Explore a wide range of properties, from cozy apartments to luxurious estates. Your perfect home is just a click away.
+                </p>
+
+                <!-- Search Bar -->
+                <div class="search-bar-container flex flex-col md:flex-row items-center gap-4">
+                    <div class="relative flex-grow w-full md:w-auto">
+                        <input type="text" id="search-location" placeholder="Enter location (e.g., New York, Lagos)" class="search-input w-full pr-10">
+                        <i class="fas fa-map-marker-alt absolute right-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    </div>
+                    <div class="relative flex-grow w-full md:w-auto">
+                        <select id="search-type" class="search-input appearance-none w-full pr-10">
+                            <option value="">Property Type</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="house">House</option>
+                            <option value="condo">Condo</option>
+                            <option value="villa">Villa</option>
+                            <option value="commercial">Commercial</option>
+                        </select>
+                        <i class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
+                    </div>
+                    <div class="relative flex-grow w-full md:w-auto">
+                        <select id="search-price" class="search-input appearance-none w-full pr-10">
+                            <option value="">Price Range</option>
+                            <option value="50k-100k">$50,000 - $100,000</option>
+                            <option value="100k-250k">$100,000 - $250,000</option>
+                            <option value="250k-500k">$250,000 - $500,000</option>
+                            <option value="500k-1m">$500,000 - $1,000,000</option>
+                            <option value="1m+">$1,000,000+</option>
+                        </select>
+                        <i class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
+                    </div>
+                    <button id="hero-search-button" class="search-button w-full md:w-auto">
+                        <i class="fas fa-search mr-2"></i> Search
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Featured Listings Section -->
+        <section id="listings" class="bg-slate-900 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Featured <span class="text-blue-400">Listings</span></h2>
+                <p class="section-subheading">
+                    Discover our hand-picked selection of premium properties, showcasing the best of what Elite Estates has to offer.
+                </p>
+
+                <!-- Carousel Container -->
+                <div class="relative">
+                    <div id="listing-carousel" class="flex overflow-hidden scroll-smooth snap-x snap-mandatory gap-8 pb-4">
+                        <!-- Listing Card 1 -->
+                        <div class="property-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center">
+                            <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Luxury+Villa" alt="Luxury Villa" class="card-image">
+                            <div class="p-6 text-left">
+                                <p class="card-price">$850,000</p>
+                                <h3 class="card-title">Modern Luxury Villa</h3>
+                                <p class="card-location"><i class="fas fa-map-marker-alt"></i> Beverly Hills, CA</p>
+                                <p class="text-slate-400 text-sm mb-4">Spacious villa with panoramic views and modern amenities.</p>
+                                <div class="card-features">
+                                    <span class="card-feature-item"><i class="fas fa-bed"></i> 4 Beds</span>
+                                    <span class="card-feature-item"><i class="fas fa-bath"></i> 3 Baths</span>
+                                    <span class="card-feature-item"><i class="fas fa-ruler-combined"></i> 3200 sqft</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 2 -->
+                        <div class="property-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center">
+                            <img src="https://placehold.co/600x400/60A5FA/FFFFFF?text=Urban+Apartment" alt="Urban Apartment" class="card-image">
+                            <div class="p-6 text-left">
+                                <p class="card-price">$320,000</p>
+                                <h3 class="card-title">Chic Urban Apartment</h3>
+                                <p class="card-location"><i class="fas fa-map-marker-alt"></i> Downtown NYC</p>
+                                <p class="text-slate-400 text-sm mb-4">Stylish apartment in the heart of the city, perfect for urban living.</p>
+                                <div class="card-features">
+                                    <span class="card-feature-item"><i class="fas fa-bed"></i> 2 Beds</span>
+                                    <span class="card-feature-item"><i class="fas fa-bath"></i> 2 Baths</span>
+                                    <span class="card-feature-item"><i class="fas fa-ruler-combined"></i> 1100 sqft</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 3 -->
+                        <div class="property-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center">
+                            <img src="https://placehold.co/600x400/93C5FD/FFFFFF?text=Family+Home" alt="Family Home" class="card-image">
+                            <div class="p-6 text-left">
+                                <p class="card-price">$580,000</p>
+                                <h3 class="card-title">Spacious Family Home</h3>
+                                <p class="card-location"><i class="fas fa-map-marker-alt"></i> Suburbia, TX</p>
+                                <p class="text-slate-400 text-sm mb-4">Ideal family home with a large backyard and excellent schools nearby.</p>
+                                <div class="card-features">
+                                    <span class="card-feature-item"><i class="fas fa-bed"></i> 5 Beds</span>
+                                    <span class="card-feature-item"><i class="fas fa-bath"></i> 3 Baths</span>
+                                    <span class="card-feature-item"><i class="fas fa-ruler-combined"></i> 2800 sqft</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 4 -->
+                        <div class="property-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center">
+                            <img src="https://placehold.co/600x400/BFDBFE/FFFFFF?text=Cozy+Cottage" alt="Cozy Cottage" class="card-image">
+                            <div class="p-6 text-left">
+                                <p class="card-price">$210,000</p>
+                                <h3 class="card-title">Charming Cozy Cottage</h3>
+                                <p class="card-location"><i class="fas fa-map-marker-alt"></i> Countryside, GA</p>
+                                <p class="text-slate-400 text-sm mb-4">A quaint and peaceful retreat, perfect for a quiet lifestyle.</p>
+                                <div class="card-features">
+                                    <span class="card-feature-item"><i class="fas fa-bed"></i> 2 Beds</span>
+                                    <span class="card-feature-item"><i class="fas fa-bath"></i> 1 Bath</span>
+                                    <span class="card-feature-item"><i class="fas fa-ruler-combined"></i> 950 sqft</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 5 -->
+                        <div class="property-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center">
+                            <img src="https://placehold.co/600x400/BFDBFE/FFFFFF?text=Penthouse" alt="Penthouse" class="card-image">
+                            <div class="p-6 text-left">
+                                <p class="card-price">$1,200,000</p>
+                                <h3 class="card-title">Luxury Penthouse Suite</h3>
+                                <p class="card-location"><i class="fas fa-map-marker-alt"></i> Miami Beach, FL</p>
+                                <p class="text-slate-400 text-sm mb-4">Stunning ocean views from this exclusive penthouse.</p>
+                                <div class="card-features">
+                                    <span class="card-feature-item"><i class="fas fa-bed"></i> 3 Beds</span>
+                                    <span class="card-feature-item"><i class="fas fa-bath"></i> 3.5 Baths</span>
+                                    <span class="card-feature-item"><i class="fas fa-ruler-combined"></i> 4000 sqft</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Navigation Buttons -->
+                    <button id="prev-listing" class="carousel-nav-button absolute left-0 top-1/2 -translate-y-1/2 ml-4 hidden md:block">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-listing" class="carousel-nav-button absolute right-0 top-1/2 -translate-y-1/2 mr-4 hidden md:block">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Explore by Categories Section -->
+        <section class="bg-slate-800 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Explore By <span class="text-blue-400">Categories</span></h2>
+                <p class="section-subheading">
+                    Browse properties by popular cities or property types to quickly find what you're looking for.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Category Card 1: City -->
+                    <div class="category-card p-6 flex flex-col items-center">
+                        <img src="https://placehold.co/200x150/3B82F6/FFFFFF?text=New+York" alt="New York City" class="rounded-lg mb-4 w-full h-auto object-cover">
+                        <h3 class="card-title text-xl mb-2">New York City</h3>
+                        <p class="text-slate-400 text-sm">250+ Listings</p>
+                        <a href="#" class="text-blue-400 hover:underline mt-4">View Properties <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <!-- Category Card 2: Type -->
+                    <div class="category-card p-6 flex flex-col items-center">
+                        <img src="https://placehold.co/200x150/60A5FA/FFFFFF?text=Apartments" alt="Apartments" class="rounded-lg mb-4 w-full h-auto object-cover">
+                        <h3 class="card-title text-xl mb-2">Apartments</h3>
+                        <p class="text-slate-400 text-sm">500+ Listings</p>
+                        <a href="#" class="text-blue-400 hover:underline mt-4">View Properties <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <!-- Category Card 3: City -->
+                    <div class="category-card p-6 flex flex-col items-center">
+                        <img src="https://placehold.co/200x150/93C5FD/FFFFFF?text=Los+Angeles" alt="Los Angeles" class="rounded-lg mb-4 w-full h-auto object-cover">
+                        <h3 class="card-title text-xl mb-2">Los Angeles</h3>
+                        <p class="text-slate-400 text-sm">300+ Listings</p>
+                        <a href="#" class="text-blue-400 hover:underline mt-4">View Properties <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <!-- Category Card 4: Type -->
+                    <div class="category-card p-6 flex flex-col items-center">
+                        <img src="https://placehold.co/200x150/BFDBFE/FFFFFF?text=Houses" alt="Houses" class="rounded-lg mb-4 w-full h-auto object-cover">
+                        <h3 class="card-title text-xl mb-2">Houses</h3>
+                        <p class="text-slate-400 text-sm">700+ Listings</p>
+                        <a href="#" class="text-blue-400 hover:underline mt-4">View Properties <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. About Us: Our Story & Mission Section -->
+        <section id="about" class="bg-slate-900 py-16">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h2 class="section-heading text-left">Our <span class="text-blue-400">Story</span> & Mission</h2>
+                    <p class="text-slate-400 text-lg mb-6">
+                        Elite Estates was founded with a singular vision: to revolutionize the real estate experience by
+                        providing unparalleled service, transparency, and expertise. We believe that finding your home
+                        should be an exciting and seamless journey.
+                    </p>
+                    <p class="text-slate-400 text-lg mb-6">
+                        Our mission is to empower individuals and families to achieve their real estate dreams, whether
+                        it's finding the perfect first home, a lucrative investment property, or selling with confidence.
+                        We are committed to building lasting relationships based on trust and exceptional results.
+                    </p>
+                    <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition duration-300">Learn More About Us</a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://placehold.co/600x400/1E293B/E2E8F0?text=About+Us+Image" alt="Our Team" class="rounded-xl shadow-lg w-full max-w-md md:max-w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Why Choose Us Section -->
+        <section class="bg-slate-800 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Why <span class="text-blue-400">Choose Us</span>?</h2>
+                <p class="section-subheading">
+                    We stand out through our commitment to excellence, personalized service, and deep market knowledge.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="step-card"> <!-- Reusing step-card for consistency -->
+                        <div class="step-icon"><i class="fas fa-handshake"></i></div>
+                        <h3 class="step-title">Unmatched Expertise</h3>
+                        <p class="step-description">Benefit from our agents' extensive knowledge and experience in diverse markets.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fas fa-users-cog"></i></div>
+                        <h3 class="step-title">Personalized Service</h3>
+                        <p class="step-description">We tailor our approach to your unique needs and preferences for a perfect match.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="step-title">Market Insight</h3>
+                        <p class="step-description">Stay ahead with our cutting-edge market analysis and investment opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. How It Works Section -->
+        <section class="bg-slate-900 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">How It <span class="text-blue-400">Works</span></h2>
+                <p class="section-subheading">
+                    Our simple 3-step process makes finding or selling your property effortless and efficient.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Step 1 -->
+                    <div class="step-card">
+                        <div class="step-icon">1</div>
+                        <h3 class="step-title">Search & Discover</h3>
+                        <p class="step-description">Explore our extensive database of properties with advanced search filters.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="step-icon">2</div>
+                    <h3 class="step-title">Connect with Agents</h3>
+                    <p class="step-description">Get expert advice and personalized tours from our professional agents.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-icon">3</div>
+                    <h3 class="step-title">Close the Deal</h3>
+                    <p class="step-description">Secure your dream property with seamless transactions and support.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Meet Our Agents Section -->
+        <section id="agents" class="bg-slate-800 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Meet Our <span class="text-blue-400">Agents</span></h2>
+                <p class="section-subheading">
+                    Our dedicated team of experienced real estate professionals is here to guide you every step of the way.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Agent Card 1 -->
+                    <div class="agent-card p-6">
+                        <img src="https://placehold.co/150x150/3B82F6/FFFFFF?text=Agent+1" alt="Agent Emily White" class="agent-image">
+                        <h3 class="card-title">Emily White</h3>
+                        <p class="agent-title">Senior Agent</p>
+                        <p class="text-slate-400 text-sm mb-4">Specializing in luxury residential properties.</p>
+                        <div class="social-links flex justify-center space-x-4">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <!-- Agent Card 2 -->
+                    <div class="agent-card p-6">
+                        <img src="https://placehold.co/150x150/60A5FA/FFFFFF?text=Agent+2" alt="Agent John Doe" class="agent-image">
+                        <h3 class="card-title">John Doe</h3>
+                        <p class="agent-title">Commercial Specialist</p>
+                        <p class="text-slate-400 text-sm mb-4">Expert in commercial real estate investments.</p>
+                        <div class="social-links flex justify-center space-x-4">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <!-- Agent Card 3 -->
+                    <div class="agent-card p-6">
+                        <img src="https://placehold.co/150x150/93C5FD/FFFFFF?text=Agent+3" alt="Agent Sarah Lee" class="agent-image">
+                        <h3 class="card-title">Sarah Lee</h3>
+                        <p class="agent-title">Residential Expert</p>
+                        <p class="text-slate-400 text-sm mb-4">Helping families find their perfect residential homes.</p>
+                        <div class="social-links flex justify-center space-x-4">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <!-- Agent Card 4 -->
+                    <div class="agent-card p-6">
+                        <img src="https://placehold.co/150x150/BFDBFE/FFFFFF?text=Agent+4" alt="Agent Michael Brown" class="agent-image">
+                        <h3 class="card-title">Michael Brown</h3>
+                        <p class="agent-title">Investment Advisor</p>
+                        <p class="text-slate-400 text-sm mb-4">Guiding clients through profitable real estate investments.</p>
+                        <div class="social-links flex justify-center space-x-4">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Client Testimonials Section -->
+        <section class="bg-slate-900 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">What Our <span class="text-blue-400">Clients Say</span></h2>
+                <p class="section-subheading">
+                    Hear from our satisfied clients about their experience finding their dream homes with Elite Estates.
+                </p>
+
+                <div id="testimonial-carousel" class="relative flex overflow-hidden scroll-smooth snap-x snap-mandatory gap-8 pb-4">
+                    <!-- Testimonial Card 1 -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center">
+                        <p class="testimonial-quote">"Elite Estates made finding our new home a breeze! Their agents were incredibly helpful and professional throughout the entire process."</p>
+                        <img src="https://placehold.co/70x70/3B82F6/FFFFFF?text=JD" alt="Client Jane Doe" class="testimonial-author-image">
+                        <p class="testimonial-author-name">Jane Doe</p>
+                        <p class="testimonial-author-title">Happy Homeowner</p>
+                    </div>
+                    <!-- Testimonial Card 2 -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center">
+                        <p class="testimonial-quote">"The best real estate experience I've ever had. Elite Estates truly understands the market and helped me sell my property quickly and at a great price."</p>
+                        <img src="https://placehold.co/70x70/60A5FA/FFFFFF?text=MS" alt="Client Mark Smith" class="testimonial-author-image">
+                        <p class="testimonial-author-name">Mark Smith</p>
+                        <p class="testimonial-author-title">Property Seller</p>
+                    </div>
+                    <!-- Testimonial Card 3 -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center">
+                        <p class="testimonial-quote">"Professional, efficient, and truly client-focused. Elite Estates guided me through my first home purchase with ease. Highly recommend!"</p>
+                        <img src="https://placehold.co/70x70/93C5FD/FFFFFF?text=AL" alt="Client Alice Lee" class="testimonial-author-image">
+                        <p class="testimonial-author-name">Alice Lee</p>
+                        <p class="testimonial-author-title">First-Time Buyer</p>
+                    </div>
+                    <!-- Testimonial Card 4 -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 snap-center">
+                        <p class="testimonial-quote">"The team at Elite Estates is exceptional. Their market insights and negotiation skills helped us secure an amazing investment property."</p>
+                        <img src="https://placehold.co/70x70/BFDBFE/FFFFFF?text=RW" alt="Client Robert Williams" class="testimonial-author-image">
+                        <p class="testimonial-author-name">Robert Williams</p>
+                        <p class="testimonial-author-title">Investor</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial Carousel Navigation Buttons -->
+                <div class="flex justify-center space-x-4 mt-8">
+                    <button id="prev-testimonial" class="carousel-nav-button">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-testimonial" class="carousel-nav-button">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Recent Sales & Market Data Section -->
+        <section class="bg-slate-800 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Recent <span class="text-blue-400">Sales</span> & Market Data</h2>
+                <p class="section-subheading">
+                    Stay informed with our latest successful transactions and key market trends.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Sold Property Card 1 -->
+                    <div class="property-card p-6 text-left">
+                        <img src="https://placehold.co/600x400/1E293B/E2E8F0?text=Sold+Home+1" alt="Sold Home 1" class="card-image mb-4">
+                        <p class="card-price text-green-400">$720,000 <span class="text-slate-400 text-base font-normal">(Sold)</span></p>
+                        <h3 class="card-title">Charming Suburban House</h3>
+                        <p class="card-location"><i class="fas fa-map-marker-alt"></i> Springfield, IL</p>
+                        <p class="text-slate-400 text-sm mb-4">Sold in 15 days, 98% of asking price.</p>
+                        <div class="card-features">
+                            <span class="card-feature-item"><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span class="card-feature-item"><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span class="card-feature-item"><i class="fas fa-ruler-combined"></i> 2100 sqft</span>
+                        </div>
+                    </div>
+                    <!-- Sold Property Card 2 -->
+                    <div class="property-card p-6 text-left">
+                        <img src="https://placehold.co/600x400/1E293B/E2E8F0?text=Sold+Home+2" alt="Sold Home 2" class="card-image mb-4">
+                        <p class="card-price text-green-400">$450,000 <span class="text-slate-400 text-base font-normal">(Sold)</span></p>
+                        <h3 class="card-title">Downtown Loft Apartment</h3>
+                        <p class="card-location"><i class="fas fa-map-marker-alt"></i> Austin, TX</p>
+                        <p class="text-slate-400 text-sm mb-4">Multiple offers, sold above asking price.</p>
+                        <div class="card-features">
+                            <span class="card-feature-item"><i class="fas fa-bed"></i> 1 Bed</span>
+                            <span class="card-feature-item"><i class="fas fa-bath"></i> 1 Bath</span>
+                            <span class="card-feature-item"><i class="fas fa-ruler-combined"></i> 850 sqft</span>
+                        </div>
+                    </div>
+                    <!-- Market Data Summary -->
+                    <div class="property-card p-6 text-left flex flex-col justify-between">
+                        <div>
+                            <h3 class="card-title mb-4">Current Market Trends</h3>
+                            <ul class="text-slate-400 space-y-3">
+                                <li class="flex items-center"><i class="fas fa-arrow-up text-green-500 mr-2"></i> Average Price Increase: <strong>+5.2%</strong> (YoY)</li>
+                                <li class="flex items-center"><i class="fas fa-hourglass-half text-blue-400 mr-2"></i> Average Days on Market: <strong>28 days</strong></li>
+                                <li class="flex items-center"><i class="fas fa-building text-purple-400 mr-2"></i> New Listings: <strong>+12%</strong> (Last Month)</li>
+                                <li class="flex items-center"><i class="fas fa-dollar-sign text-yellow-400 mr-2"></i> Interest Rates: <strong>Currently stable</strong></li>
+                            </ul>
+                        </div>
+                        <a href="#" class="inline-block text-blue-400 hover:underline mt-6 self-start">View Full Market Report <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Neighborhood Spotlight Section -->
+        <section class="bg-slate-900 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Neighborhood <span class="text-blue-400">Spotlight</span></h2>
+                <p class="section-subheading">
+                    Explore vibrant communities with unique charm, amenities, and lifestyle opportunities.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="property-card p-6 text-left">
+                        <img src="https://placehold.co/600x400/1E293B/E2E8F0?text=Neighborhood+Park" alt="Greenwood Park" class="card-image mb-4">
+                        <h3 class="card-title">Greenwood Park</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Known for its lush parks, top-rated schools, and family-friendly atmosphere.
+                            Perfect for those seeking a peaceful suburban retreat with easy city access.
+                        </p>
+                        <ul class="text-slate-400 text-sm space-y-2 mb-4">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Excellent Schools</li>
+                            <li class="flex items-center"><i class="fas fa-tree text-green-400 mr-2"></i> Abundant Green Spaces</li>
+                            <li class="flex items-center"><i class="fas fa-shopping-bag text-green-400 mr-2"></i> Local Boutiques & Cafes</li>
+                        </ul>
+                        <a href="#" class="inline-block text-blue-400 hover:underline">Explore Greenwood Park <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <div class="property-card p-6 text-left">
+                        <img src="https://placehold.co/600x400/1E293B/E2E8F0?text=Neighborhood+Cityscape" alt="Downtown Arts District" class="card-image mb-4">
+                        <h3 class="card-title">Downtown Arts District</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            A vibrant urban hub with a thriving arts scene, diverse dining, and exciting nightlife.
+                            Ideal for young professionals and creatives.
+                        </p>
+                        <ul class="text-slate-400 text-sm space-y-2 mb-4">
+                            <li class="flex items-center"><i class="fas fa-paint-brush text-green-400 mr-2"></i> Art Galleries & Studios</li>
+                            <li class="flex items-center"><i class="fas fa-utensils text-green-400 mr-2"></i> Diverse Culinary Scene</li>
+                            <li class="flex items-center"><i class="fas fa-subway text-green-400 mr-2"></i> Excellent Public Transport</li>
+                        </ul>
+                        <a href="#" class="inline-block text-blue-400 hover:underline">Explore Downtown Arts District <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. Interactive Mortgage Calculator Section -->
+        <section class="bg-slate-800 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Mortgage <span class="text-blue-400">Calculator</span></h2>
+                <p class="section-subheading">
+                    Estimate your monthly mortgage payments with our easy-to-use calculator.
+                </p>
+
+                <div class="calculator-container max-w-2xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="loan-amount" class="block text-left text-slate-300 text-sm font-medium mb-2">Loan Amount ($)</label>
+                            <input type="number" id="loan-amount" class="calculator-input w-full" value="300000" min="0">
+                        </div>
+                        <div>
+                            <label for="interest-rate" class="block text-left text-slate-300 text-sm font-medium mb-2">Interest Rate (%)</label>
+                            <input type="number" id="interest-rate" class="calculator-input w-full" value="4.5" step="0.1" min="0">
+                        </div>
+                        <div>
+                            <label for="loan-term" class="block text-left text-slate-300 text-sm font-medium mb-2">Loan Term (Years)</label>
+                            <input type="number" id="loan-term" class="calculator-input w-full" value="30" min="1">
+                        </div>
+                        <div>
+                            <label for="down-payment" class="block text-left text-slate-300 text-sm font-medium mb-2">Down Payment ($)</label>
+                            <input type="number" id="down-payment" class="calculator-input w-full" value="60000" min="0">
+                        </div>
+                    </div>
+                    <button id="calculate-mortgage" class="calculator-button w-full mb-6">Calculate Payment</button>
+
+                    <div id="mortgage-result" class="result-box hidden">
+                        <p class="mb-2">Estimated Monthly Payment: <strong id="monthly-payment">$0.00</strong></p>
+                        <p>Total Interest Paid: <strong id="total-interest">$0.00</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. Blog & Market Insights Section -->
+        <section class="bg-slate-900 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Blog & Market <span class="text-blue-400">Insights</span></h2>
+                <p class="section-subheading">
+                    Stay up-to-date with the latest real estate news, tips, and expert analysis.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card text-left">
+                        <img src="https://placehold.co/600x300/1E293B/E2E8F0?text=Blog+Post+1" alt="Blog Post 1" class="blog-image mb-4">
+                        <div class="p-6">
+                            <p class="blog-meta">By John Doe | July 10, 2025 | Market Trends</p>
+                            <h3 class="blog-title">The Future of Urban Living: What to Expect</h3>
+                            <p class="blog-excerpt mb-4">
+                                Discover how cityscapes are evolving and what that means for future homeowners and investors.
+                            </p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card text-left">
+                        <img src="https://placehold.co/600x300/1E293B/E2E8F0?text=Blog+Post+2" alt="Blog Post 2" class="blog-image mb-4">
+                        <div class="p-6">
+                            <p class="blog-meta">By Emily White | July 5, 2025 | Home Buying Tips</p>
+                            <h3 class="blog-title">5 Essential Tips for First-Time Home Buyers</h3>
+                            <p class="blog-excerpt mb-4">
+                                Navigating the housing market can be daunting. Here are our top tips to make your first purchase smooth.
+                            </p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card text-left">
+                        <img src="https://placehold.co/600x300/1E293B/E2E8F0?text=Blog+Post+3" alt="Blog Post 3" class="blog-image mb-4">
+                        <div class="p-6">
+                            <p class="blog-meta">By Michael Brown | June 28, 2025 | Investment</p>
+                            <h3 class="blog-title">Investing in Real Estate: What You Need to Know</h3>
+                            <p class="blog-excerpt mb-4">
+                                A comprehensive guide for aspiring real estate investors, covering strategies and pitfalls.
+                            </p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. FAQ Section -->
+        <section class="bg-slate-800 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Frequently Asked <span class="text-blue-400">Questions</span></h2>
+                <p class="section-subheading">
+                    Find quick answers to the most common questions about buying, selling, and real estate.
+                </p>
+
+                <div class="max-w-3xl mx-auto">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How do I start my property search?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can begin by using our advanced search bar on the homepage. Filter by location, property type, price range, and more to narrow down your options. You can also contact one of our agents for personalized assistance.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What documents do I need to sell my property?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Typically, you'll need your property deed, recent utility bills, property tax statements, any existing mortgage documents, and details of any renovations or major repairs. Our agents will provide a comprehensive checklist.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How long does the home buying process take?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The timeline can vary greatly depending on market conditions, financing, and negotiations. On average, from initial search to closing, it can take anywhere from 2 to 6 months. We work to make it as efficient as possible.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you offer property management services?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we provide comprehensive property management services for landlords, including tenant screening, rent collection, maintenance coordination, and legal compliance. Contact us for a custom quote.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. Contact Us Form Section -->
+        <section class="bg-slate-900 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Get In <span class="text-blue-400">Touch</span></h2>
+                <p class="section-subheading">
+                    Have questions or need assistance? Fill out the form below or reach out to us directly.
+                </p>
+
+                <div class="contact-form-container max-w-3xl mx-auto">
+                    <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="md:col-span-1">
+                            <label for="contact-name" class="sr-only">Your Name</label>
+                            <input type="text" id="contact-name" placeholder="Your Name" class="contact-input w-full" required>
+                        </div>
+                        <div class="md:col-span-1">
+                            <label for="contact-email" class="sr-only">Your Email</label>
+                            <input type="email" id="contact-email" placeholder="Your Email" class="contact-input w-full" required>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="contact-subject" class="sr-only">Subject</label>
+                            <input type="text" id="contact-subject" placeholder="Subject" class="contact-input w-full" required>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="contact-message" class="sr-only">Your Message</label>
+                            <textarea id="contact-message" placeholder="Your Message" rows="6" class="contact-textarea w-full" required></textarea>
+                        </div>
+                        <div class="md:col-span-2 text-center">
+                            <button type="submit" class="contact-button">Send Message</button>
+                        </div>
+                    </form>
+                    <div id="contact-message-status" class="mt-4 text-center text-green-400 hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 15. Partnerships & Awards Section -->
+        <section class="bg-slate-800 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Our <span class="text-blue-400">Partners</span> & Recognitions</h2>
+                <p class="section-subheading">
+                    Proudly collaborating with industry leaders and recognized for our excellence.
+                </p>
+
+                <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20">
+                    <img src="https://placehold.co/150x50/334155/E2E8F0?text=Partner+A" alt="Partner A Logo" class="h-12 opacity-70 hover:opacity-100 transition-opacity duration-300 rounded">
+                    <img src="https://placehold.co/150x50/334155/E2E8F0?text=Award+B" alt="Award B Logo" class="h-12 opacity-70 hover:opacity-100 transition-opacity duration-300 rounded">
+                    <img src="https://placehold.co/150x50/334155/E2E8F0?text=Partner+C" alt="Partner C Logo" class="h-12 opacity-70 hover:opacity-100 transition-opacity duration-300 rounded">
+                    <img src="https://placehold.co/150x50/334155/E2E8F0?text=Award+D" alt="Award D Logo" class="h-12 opacity-70 hover:opacity-100 transition-opacity duration-300 rounded">
+                    <img src="https://placehold.co/150x50/334155/E2E8F0?text=Partner+E" alt="Partner E Logo" class="h-12 opacity-70 hover:opacity-100 transition-opacity duration-300 rounded">
+                </div>
+            </div>
+        </section>
+
+        <!-- 16. Subscribe to Newsletter Section -->
+        <section class="bg-slate-900 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <div class="bg-slate-800 rounded-xl p-8 md:p-12 shadow-lg max-w-3xl mx-auto">
+                    <h3 class="text-3xl font-bold text-white mb-4">Stay Informed with Our Newsletter</h3>
+                    <p class="text-slate-400 text-lg mb-8">
+                        Get the latest market updates, new listings, and exclusive insights delivered straight to your inbox.
+                    </p>
+                    <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <label for="newsletter-email" class="sr-only">Enter your email</label>
+                        <input type="email" id="newsletter-email" placeholder="Enter your email address" class="contact-input flex-grow sm:w-auto" required>
+                        <button type="submit" class="contact-button sm:w-auto">Subscribe Now</button>
+                    </form>
+                    <div id="newsletter-status" class="mt-4 text-center text-green-400 hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 17. Career Opportunities Section -->
+        <section class="bg-slate-800 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Join Our <span class="text-blue-400">Team</span></h2>
+                <p class="section-subheading">
+                    Passionate about real estate? Explore exciting career opportunities with Elite Estates.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Career Card 1 -->
+                    <div class="career-card p-6 text-left">
+                        <h3 class="card-title mb-2">Real Estate Agent</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            We're looking for motivated and licensed agents to join our growing team.
+                            Excellent commission structure and support provided.
+                        </p>
+                        <ul class="text-slate-400 text-sm space-y-2 mb-4">
+                            <li class="flex items-center"><i class="fas fa-briefcase text-blue-400 mr-2"></i> Full-time</li>
+                            <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i> Multiple Locations</li>
+                        </ul>
+                        <a href="#" class="inline-block text-blue-400 hover:underline">Apply Now <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <!-- Career Card 2 -->
+                    <div class="career-card p-6 text-left">
+                        <h3 class="card-title mb-2">Marketing Specialist</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Help us showcase properties and reach a wider audience through innovative marketing strategies.
+                        </p>
+                        <ul class="text-slate-400 text-sm space-y-2 mb-4">
+                            <li class="flex items-center"><i class="fas fa-briefcase text-blue-400 mr-2"></i> Full-time / Part-time</li>
+                            <li class="flex items-center"><i class="fas fa-desktop text-blue-400 mr-2"></i> Remote Option</li>
+                        </ul>
+                        <a href="#" class="inline-block text-blue-400 hover:underline">Apply Now <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 18. Virtual Tour Showcase Section -->
+        <section class="bg-slate-900 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading">Virtual <span class="text-blue-400">Tour</span> Showcase</h2>
+                <p class="section-subheading">
+                    Experience properties from the comfort of your home with our immersive virtual tours.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Virtual Tour Card 1 -->
+                    <div class="virtual-tour-card p-4">
+                        <img src="https://placehold.co/600x350/1E293B/E2E8F0?text=Virtual+Tour+1" alt="Virtual Tour Property 1" class="card-image mb-4">
+                        <div class="p-2 text-left">
+                            <h3 class="card-title">Modern City Apartment</h3>
+                            <p class="card-location mb-2"><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
+                            <p class="text-slate-400 text-sm mb-4">
+                                Take a virtual walk through this stunning downtown apartment with panoramic views.
+                            </p>
+                            <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">
+                                <i class="fas fa-vr-cardboard mr-2"></i> View Virtual Tour
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Virtual Tour Card 2 -->
+                    <div class="virtual-tour-card p-4">
+                        <img src="https://placehold.co/600x350/1E293B/E2E8F0?text=Virtual+Tour+2" alt="Virtual Tour Property 2" class="card-image mb-4">
+                        <div class="p-2 text-left">
+                            <h3 class="card-title">Spacious Family Villa</h3>
+                            <p class="card-location mb-2"><i class="fas fa-map-marker-alt"></i> Orlando, FL</p>
+                            <p class="text-slate-400 text-sm mb-4">
+                                Explore every corner of this beautiful villa, perfect for a growing family.
+                            </p>
+                            <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">
+                                <i class="fas fa-vr-cardboard mr-2"></i> View Virtual Tour
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Virtual Tour Card 3 -->
+                    <div class="virtual-tour-card p-4">
+                        <img src="https://placehold.co/600x350/1E293B/E2E8F0?text=Virtual+Tour+3" alt="Virtual Tour Property 3" class="card-image mb-4">
+                        <div class="p-2 text-left">
+                            <h3 class="card-title">Modern Lakeside Retreat</h3>
+                            <p class="card-location mb-2"><i class="fas fa-map-marker-alt"></i> Lake Tahoe, NV</p>
+                            <p class="text-slate-400 text-sm mb-4">
+                                A serene escape with breathtaking lake views, available for virtual exploration.
+                            </p>
+                            <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">
+                                <i class="fas fa-vr-cardboard mr-2"></i> View Virtual Tour
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 19. Final Call to Action Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="cta-section">
+                    <h2 class="text-5xl font-extrabold text-white mb-6 leading-tight">
+                        Your Real Estate <span class="text-slate-900">Journey Starts Here.</span>
+                    </h2>
+                    <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+                        Ready to take the next step? Our team is eager to assist you.
+                        Contact us today for a free consultation!
+                    </p>
+                    <a href="#contact" class="cta-button">Book a Consultation</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 20. Comprehensive Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Company Info -->
+            <div class="col-span-1 md:col-span-2 text-center md:text-left">
+                <a href="#" class="flex items-center justify-center md:justify-start text-white text-3xl font-bold mb-4">
+                    <img src="https://placehold.co/40x40/3B82F6/FFFFFF?text=EE" alt="Elite Estates Logo" class="h-10 w-10 rounded-full mr-2">
+                    Elite Estates
+                </a>
+                <p class="text-slate-400 text-sm mb-4">
+                    Your premier partner in finding and securing the finest properties worldwide. We are dedicated to excellence and client satisfaction.
+                </p>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="text-center md:text-left">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="#home" class="footer-link block">Home</a></li>
+                    <li><a href="#listings" class="footer-link block">Listings</a></li>
+                    <li><a href="#agents" class="footer-link block">Agents</a></li>
+                    <li><a href="#about" class="footer-link block">About Us</a></li>
+                    <li><a href="#contact" class="footer-link block">Contact</a></li>
+                    <li><a href="#" class="footer-link block">Privacy Policy</a></li>
+                    <li><a href="#" class="footer-link block">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="text-center md:text-left">
+                <h4 class="footer-heading">Services</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="footer-link block">Buy a Property</a></li>
+                    <li><a href="#" class="footer-link block">Sell a Property</a></li>
+                    <li><a href="#" class="footer-link block">Rent a Property</a></li>
+                    <li><a href="#" class="footer-link block">Property Management</a></li>
+                    <li><a href="#" class="footer-link block">Investment Advice</a></li>
+                    <li><a href="#" class="footer-link block">Virtual Tours</a></li>
+                    <li><a href="#" class="footer-link block">Mortgage Solutions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 border-t border-slate-700 mt-12 pt-8 text-center text-slate-500 text-sm">
+            &copy; 2025 Elite Estates. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // --- Carousel Functionality (for Featured Listings and Testimonials) ---
+        function setupCarousel(carouselId, prevButtonId, nextButtonId) {
+            const carousel = document.getElementById(carouselId);
+            const prevButton = document.getElementById(prevButtonId);
+            const nextButton = document.getElementById(nextButtonId);
+
+            if (!carousel || !prevButton || !nextButton) {
+                console.warn(`Carousel elements not found for ID: ${carouselId}`);
+                return;
+            }
+
+            // Calculate scroll amount dynamically based on the first child's width + gap
+            const firstChild = carousel.querySelector(':first-child');
+            const gap = 32; // Tailwind gap-8 is 32px
+            const scrollAmount = firstChild ? firstChild.offsetWidth + gap : 0;
+
+            prevButton.addEventListener('click', () => {
+                carousel.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            nextButton.addEventListener('click', () => {
+                carousel.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Optional: Hide/show nav buttons based on scroll position (for larger screens)
+            const checkScroll = () => {
+                // Only show/hide buttons on non-mobile screens based on a breakpoint (e.g., md)
+                if (window.innerWidth >= 768) { // Tailwind's 'md' breakpoint is 768px
+                    prevButton.style.display = carousel.scrollLeft > 0 ? 'block' : 'none';
+                    nextButton.style.display = carousel.scrollLeft + carousel.clientWidth < carousel.scrollWidth ? 'block' : 'none';
+                } else {
+                    // Hide buttons on mobile
+                    prevButton.style.display = 'none';
+                    nextButton.style.display = 'none';
+                }
+            };
+
+            carousel.addEventListener('scroll', checkScroll);
+            window.addEventListener('resize', checkScroll); // Re-check on resize
+            checkScroll(); // Initial check
+        }
+
+        // --- Smooth Scrolling for Navigation Links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const headerOffset = document.querySelector('header').offsetHeight; // Get header height
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset - 20; // Add a little extra padding
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+
+        // --- Hero Search Bar Validation ---
+        document.getElementById('hero-search-button').addEventListener('click', function() {
+            const locationInput = document.getElementById('search-location');
+            const propertyTypeSelect = document.getElementById('search-type');
+            const priceRangeSelect = document.getElementById('search-price');
+
+            let isValid = true;
+            let messages = [];
+
+            if (locationInput.value.trim() === '') {
+                isValid = false;
+                messages.push('Location cannot be empty.');
+                locationInput.style.border = '1px solid #EF4444'; /* Red border for error */
+            } else {
+                locationInput.style.border = '1px solid #4A5568'; /* Reset border */
+            }
+
+            if (propertyTypeSelect.value === '') {
+                isValid = false;
+                messages.push('Please select a property type.');
+                propertyTypeSelect.style.border = '1px solid #EF4444';
+            } else {
+                propertyTypeSelect.style.border = '1px solid #4A5568';
+            }
+
+            if (priceRangeSelect.value === '') {
+                isValid = false;
+                messages.push('Please select a price range.');
+                priceRangeSelect.style.border = '1px solid #EF4444';
+            } else {
+                priceRangeSelect.style.border = '1px solid #4A5568';
+            }
+
+            if (!isValid) {
+                console.error('Validation Errors:', messages.join('\n'));
+                // In a real app, display these messages in a more user-friendly way (e.g., toast, inline errors)
+                // For this example, we'll use a simple alert for demonstration.
+                alert('Please fill in all search fields correctly:\n' + messages.join('\n'));
+            } else {
+                // Simulate search action
+                alert('Searching for properties in ' + locationInput.value + ' of type ' + propertyTypeSelect.value + ' in price range ' + priceRangeSelect.value + '!');
+                // In a real application, you would send this data to a backend or filter results
+            }
+        });
+
+        // --- Mortgage Calculator Logic ---
+        document.getElementById('calculate-mortgage').addEventListener('click', function() {
+            const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+            const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12; // Monthly interest rate
+            const loanTerm = parseFloat(document.getElementById('loan-term').value) * 12; // Monthly loan term
+            const downPayment = parseFloat(document.getElementById('down-payment').value);
+
+            const principal = loanAmount - downPayment;
+
+            const resultBox = document.getElementById('mortgage-result');
+            const monthlyPaymentSpan = document.getElementById('monthly-payment');
+            const totalInterestSpan = document.getElementById('total-interest');
+
+            if (isNaN(principal) || isNaN(interestRate) || isNaN(loanTerm) || principal <= 0 || loanTerm <= 0) {
+                resultBox.classList.remove('hidden');
+                monthlyPaymentSpan.textContent = '$0.00';
+                totalInterestSpan.textContent = '$0.00';
+                resultBox.style.color = '#EF4444'; // Red for error
+                resultBox.textContent = 'Please enter valid numbers for all fields.';
+                return;
+            }
+
+            let monthlyPayment;
+            if (interestRate === 0) {
+                monthlyPayment = principal / loanTerm;
+            } else {
+                monthlyPayment = principal * (interestRate * Math.pow(1 + interestRate, loanTerm)) / (Math.pow(1 + interestRate, loanTerm) - 1);
+            }
+
+            const totalPayment = monthlyPayment * loanTerm;
+            const totalInterest = totalPayment - principal;
+
+            monthlyPaymentSpan.textContent = `$${monthlyPayment.toFixed(2)}`;
+            totalInterestSpan.textContent = `$${totalInterest.toFixed(2)}`;
+            resultBox.classList.remove('hidden');
+            resultBox.style.color = '#E2E8F0'; // Reset color
+            resultBox.innerHTML = `
+                <p class="mb-2">Estimated Monthly Payment: <strong id="monthly-payment">$${monthlyPayment.toFixed(2)}</strong></p>
+                <p>Total Interest Paid: <strong id="total-interest">$${totalInterest.toFixed(2)}</strong></p>
+            `;
+        });
+
+        // --- FAQ Accordion Logic ---
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.closest('.faq-item');
+                const answer = item.querySelector('.faq-answer');
+
+                // Toggle active class on the clicked item
+                item.classList.toggle('active');
+
+                // Adjust max-height for smooth collapse/expand
+                if (item.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                } else {
+                    answer.style.maxHeight = '0';
+                }
+
+                // Optional: Close other open accordion items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = '0';
+                    }
+                });
+            });
+        });
+
+        // --- Contact Form Submission (Client-side simulation) ---
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent actual form submission
+
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const subject = document.getElementById('contact-subject').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+            const statusDiv = document.getElementById('contact-message-status');
+
+            if (name && email && subject && message) {
+                // Simulate successful submission
+                statusDiv.textContent = 'Thank you for your message! We will get back to you soon.';
+                statusDiv.classList.remove('hidden', 'text-red-400');
+                statusDiv.classList.add('text-green-400');
+                this.reset(); // Clear form fields
+            } else {
+                statusDiv.textContent = 'Please fill in all required fields.';
+                statusDiv.classList.remove('hidden', 'text-green-400');
+                statusDiv.classList.add('text-red-400');
+            }
+        });
+
+        // --- Newsletter Form Submission (Client-side simulation) ---
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent actual form submission
+
+            const email = document.getElementById('newsletter-email').value.trim();
+            const statusDiv = document.getElementById('newsletter-status');
+
+            if (email && email.includes('@') && email.includes('.')) {
+                // Simulate successful submission
+                statusDiv.textContent = 'Thank you for subscribing to our newsletter!';
+                statusDiv.classList.remove('hidden', 'text-red-400');
+                statusDiv.classList.add('text-green-400');
+                this.reset(); // Clear form fields
+            } else {
+                statusDiv.textContent = 'Please enter a valid email address.';
+                statusDiv.classList.remove('hidden', 'text-green-400');
+                statusDiv.classList.add('text-red-400');
+            }
+        });
+
+        // --- Simple Scroll Animation (Fade In) ---
+        const animateOnScrollElements = document.querySelectorAll('.section-heading, .section-subheading, .property-card, .step-card, .agent-card, .testimonial-card, .blog-card, .career-card, .virtual-tour-card, .category-card, .calculator-container, .faq-item, .contact-form-container, .cta-section, .footer-heading, .footer-link, .social-icon');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, {
+            threshold: 0.1, // Trigger when 10% of the element is visible
+            rootMargin: '0px 0px -50px 0px' // Adjust trigger point
+        });
+
+        animateOnScrollElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            observer.observe(element);
+        });
+
+        // Initialize carousels on window load
+        window.addEventListener('load', () => {
+            setupCarousel('listing-carousel', 'prev-listing', 'next-listing');
+            setupCarousel('testimonial-carousel', 'prev-testimonial', 'next-testimonial');
+        });
+
+    </script>
+</body>
+</html>
